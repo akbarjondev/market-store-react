@@ -1,0 +1,24 @@
+@import "./../../sass/variables.scss";
+@import "./../../sass/mixins.scss";
+
+.header {
+  padding: 20px 0;
+  border-bottom: 1px solid $main;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-weight: 700;
+    color: $main;
+  }
+
+  &__icon {
+    margin-right: 4px;
+    color: $main;
+  }
+}
