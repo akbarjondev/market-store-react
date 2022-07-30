@@ -1,6 +1,12 @@
+@import "./../../sass/variables.scss";
+
 .layout {
   flex-grow: 1;
   display: flex;
+}
+
+.left {
+  border-right: 1px solid $main;
 }
 
 .content {

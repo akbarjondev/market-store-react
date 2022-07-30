@@ -1,0 +1,20 @@
+@import "./../../sass/variables.scss";
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+
+  &__link {
+    text-decoration: none;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid $main;
+    color: $main;
+
+    &:hover {
+      color: $white;
+      background-color: $secondary;
+    }
+  }
+}
