@@ -1,19 +1,26 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import { toCapitalize } from "../../helpers";
 import "./Nav.scss";
-import { Link } from "react-router-dom";
+
+const routes = ["goods", "sales", "customers"];
 
 function Nav() {
+  const { pathname } = useLocation();
+
   return (
     <div className="nav">
-      <Link className="nav__link" to="/">
-        Goods
-      </Link>
-      <Link className="nav__link" to="/customers">
-        Customers
-      </Link>
-      <Link className="nav__link" to="/sales">
-        Sales
-      </Link>
+      {routes.map((route, index) => (
+        <Link
+          key={index}
+          className={`nav__link ${
+            pathname === `/${route}` ? "nav__link--active" : ""
+          }`}
+          to={route}
+        >
+          {toCapitalize(route)}
+        </Link>
+      ))}
     </div>
   );
 }

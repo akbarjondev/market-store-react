@@ -1,0 +1,9 @@
+export { default as Button } from "./Button/Button";
+export { default as Customers } from "./Customers/Customers";
+export { default as Footer } from "./Footer/Footer";
+export { default as Good } from "./Good/Good";
+export { default as Goods } from "./Goods/Goods";
+export { default as Header } from "./Header/Header";
+export { default as Layout } from "./Layout/Layout";
+export { default as Nav } from "./Nav/Nav";
+export { default as Sales } from "./Sales/Sales";

@@ -6,12 +6,14 @@
   padding: 10px;
 
   &__link {
+    border-radius: $radius;
     text-decoration: none;
     padding: 10px;
     margin-bottom: 5px;
     border: 1px solid $main;
     color: $main;
 
+    &--active,
     &:hover {
       color: $white;
       background-color: $secondary;
