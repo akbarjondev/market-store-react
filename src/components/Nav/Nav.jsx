@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import shortid from "shortid";
 import { toCapitalize } from "../../helpers";
 import "./Nav.scss";
 
@@ -12,7 +13,8 @@ function Nav() {
     <div className="nav">
       {routes.map((route, index) => (
         <Link
-          key={index}
+          key={shortid.generate()}
+          data-id={shortid.generate()}
           className={`nav__link ${
             pathname === `/${route}` ? "nav__link--active" : ""
           }`}
