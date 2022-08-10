@@ -3,11 +3,11 @@ import { Route, Routes } from "react-router-dom";
 import "./App.scss";
 import "./../../sass/general.scss";
 
-import { Header, Layout, Footer, Nav, Goods } from "./../../components";
+import { Header, Layout, Footer, Nav, Goods } from "..";
 
-const Sales = React.lazy(() => import("./../Sales/Sales"));
-const Customers = React.lazy(() => import("./../Customers/Customers"));
-const Good = React.lazy(() => import("./../Good/Good"));
+const Sales = React.lazy(() => import("../Sales/Sales"));
+const Customers = React.lazy(() => import("../Customers/Customers"));
+const Good = React.lazy(() => import("../Good/Good"));
 
 function App() {
   return (
