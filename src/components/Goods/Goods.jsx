@@ -1,73 +1,30 @@
-import React, { useEffect, useLayoutEffect, useRef } from "react";
-import { TransitionGroup } from "react-transition-group";
+import { increment, decrement } from "../../redux/counter";
+import { useDispatch, useSelector } from "react-redux";
 import "./Goods.scss";
-import { sanitizeUrl } from "../../helpers";
-
-const dataFromGlobalFetchingStore = [
-  {
-    id: "scsdcsd",
-    name: "Car toy",
-    price: "12300",
-    numberInStore: 0,
-    category: 1,
-  },
-  {
-    id: "1scsdcsd",
-    name: "Knife",
-    price: "22300",
-    numberInStore: 10,
-    category: 2,
-  },
-  {
-    id: "2scsdcsd",
-    name: "Computer",
-    price: "312300",
-    numberInStore: 99,
-    category: 3,
-  },
-];
-
-const duration = 300;
-
-const defaultStyle = {
-  transition: `opacity ${duration}ms ease-in-out`,
-  opacity: 0,
-};
-
-const transitionStyles = {
-  entering: { opacity: 1 },
-  entered: { opacity: 1 },
-  exiting: { opacity: 0 },
-  exited: { opacity: 0 },
-};
 
 function Goods() {
-  const myRef = useRef(null);
-
-  useEffect(() => {
-    myRef.current = true;
-  });
-
-  useLayoutEffect(() => {
-    console.log(myRef);
-  });
+  const dispatch = useDispatch();
+  const count = useSelector((state) => state.counter.value);
 
   return (
-    <TransitionGroup timeout={duration}>
-      <div className="goods">
-        <div className="goods__form">
-          <label className="goods__label">
-            <span className="goods__search">Search:</span>
-            <input
-              className="goods__input"
-              type="text"
-              placeholder="Good's name"
-            />
-          </label>
-        </div>
-        {/* End of form */}
+    <div className="goods">
+      <div className="goods__form">
+        <label className="goods__label">
+          <span className="goods__search">Search:</span>
+          <input
+            className="goods__input"
+            type="text"
+            placeholder="Good's name"
+          />
+        </label>
       </div>
-    </TransitionGroup>
+      {/* End of form */}
+      <div className="goods__body">
+        <h3>{count}</h3>
+        <button onClick={() => dispatch(increment())}>+</button>
+        <button onClick={() => dispatch(decrement())}>-</button>
+      </div>
+    </div>
   );
 }
 
