@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef } from "react";
-import { TransitionGroup } from "react-transition-group";
+import { useSelector, useDispatch } from "react-redux";
+import { increment, decrement, incrementByValue } from "../../redux/counter";
 import "./Goods.scss";
-import { sanitizeUrl } from "../../helpers";
 
 const dataFromGlobalFetchingStore = [
   {
@@ -27,47 +27,30 @@ const dataFromGlobalFetchingStore = [
   },
 ];
 
-const duration = 300;
-
-const defaultStyle = {
-  transition: `opacity ${duration}ms ease-in-out`,
-  opacity: 0,
-};
-
-const transitionStyles = {
-  entering: { opacity: 1 },
-  entered: { opacity: 1 },
-  exiting: { opacity: 0 },
-  exited: { opacity: 0 },
-};
-
 function Goods() {
-  const myRef = useRef(null);
-
-  useEffect(() => {
-    myRef.current = true;
-  });
-
-  useLayoutEffect(() => {
-    console.log(myRef);
-  });
+  const count = useSelector((state) => state.counter.count);
+  const dispatch = useDispatch();
 
   return (
-    <TransitionGroup timeout={duration}>
-      <div className="goods">
-        <div className="goods__form">
-          <label className="goods__label">
-            <span className="goods__search">Search:</span>
-            <input
-              className="goods__input"
-              type="text"
-              placeholder="Good's name"
-            />
-          </label>
-        </div>
-        {/* End of form */}
+    <div className="goods">
+      <div className="goods__form">
+        <label className="goods__label">
+          <span className="goods__search">Search:</span>
+          <input
+            className="goods__input"
+            type="text"
+            placeholder="Good's name"
+          />
+        </label>
       </div>
-    </TransitionGroup>
+      {/* End of form */}
+      <div className="goods__body">
+        <h2>{count}</h2>
+        <button onClick={() => dispatch(increment())}>+</button>
+        <button onClick={() => dispatch(decrement())}>-</button>
+        <button onClick={() => dispatch(incrementByValue(2))}>+2</button>
+      </div>
+    </div>
   );
 }
 
