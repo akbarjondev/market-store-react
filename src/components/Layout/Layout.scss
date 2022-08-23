@@ -7,9 +7,18 @@
 
 .left {
   border-right: 1px solid $main;
+  flex-grow: 1;
+  flex-shrink: 0;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  height: 100%;
+  background-color: #fff;
 }
 
 .content {
-  flex-grow: 1;
+  flex-grow: 3;
   padding: 10px;
+  margin-left: 200px;
 }

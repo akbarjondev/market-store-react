@@ -37,7 +37,6 @@ function App() {
           </React.Suspense>
         </Layout.Content>
       </Layout>
-      <Footer />
     </div>
   );
 }

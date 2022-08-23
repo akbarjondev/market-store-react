@@ -1,6 +1,8 @@
 @import "./../../sass/variables.scss";
 
 .goods {
+  height: 100%;
+
   &__form {
     padding-bottom: 10px;
     margin-bottom: 10px;
@@ -22,5 +24,42 @@
     padding: 10px;
     border-radius: $radius;
     font-family: inherit;
+  }
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 100%;
+  align-items: flex-start;
+  overflow: hidden;
+
+  &__item {
+    display: flex;
+    border: 1px solid $main;
+    border-radius: $radius;
+    padding: 20px;
+    margin-bottom: 10px;
+    width: 400px;
+    text-decoration: none;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  &__heading {
+    margin-top: 0;
+  }
+
+  &__desc {
+    margin: 0;
+  }
+
+  &__image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+    margin-right: 20px;
   }
 }

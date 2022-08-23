@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../Footer/Footer";
 import "./Layout.scss";
 
 function Layout({ children }) {
@@ -17,7 +18,7 @@ Layout.Content = function ({ children }) {
   return <div className="content">{children}</div>;
 };
 
-Layout.right = function ({ children }) {
+Layout.Right = function ({ children }) {
   return <div className="right">{children}</div>;
 };
 
